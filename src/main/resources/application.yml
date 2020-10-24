@@ -1,0 +1,18 @@
+app:
+  security:
+    jwt-secret: SECRET
+    jwt-expiration-time: 21600
+
+spring:
+  datasource:
+    initialization-mode: always
+  jpa.properties.hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    order_by.default_null_ordering: last
+  servlet.multipart:
+    max-file-size: 25MB
+    max-request-size: 25MB
+    resolve-lazily: true
+
+logging.level:
+  pl.com.karwowsm.musiqueue: trace

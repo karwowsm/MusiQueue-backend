@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/musiqueue
+    username: postgres
+    password: pass
+  jpa.properties.hibernate.format_sql: true
+  profiles.include: debug
+
+logging.level:
+#  org.springframework:
+#    web: trace
+#    messaging: trace
+#    web.socket: trace
+#    transaction: trace
+#    transaction.interceptor: trace
+#    orm.jpa: trace
+#    retry: trace
+#  org.hibernate:
+#    SQL: trace
+#    type.descriptor.sql: trace
+#  org.jaudiotagger.audio: trace
