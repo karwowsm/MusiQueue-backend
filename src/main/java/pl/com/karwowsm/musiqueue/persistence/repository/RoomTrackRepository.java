@@ -12,8 +12,6 @@ import java.util.UUID;
 @Repository
 public interface RoomTrackRepository extends JpaRepository<RoomTrack, UUID> {
 
-    List<RoomTrack> findAllByRoomIdOrderByIndex(UUID roomId);
-
     List<RoomTrack> findAllByRoomIdAndIndexBetween(UUID roomId, Integer startIndex, Integer endIndex);
 
     List<RoomTrack> findAllByRoomIdAndIndexGreaterThanOrderByIndex(UUID roomId, Integer index);

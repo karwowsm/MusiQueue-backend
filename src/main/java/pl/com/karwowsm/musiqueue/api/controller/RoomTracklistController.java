@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import pl.com.karwowsm.musiqueue.api.dto.RoomTracklist;
@@ -45,9 +46,9 @@ public class RoomTracklistController {
     private final PlayRoomTrackRequestHandler playRoomTrackRequestHandler;
 
     @GetMapping
-    public RoomTracklist getTracklist(@PathVariable UUID roomId) {
+    public RoomTracklist getTracklist(@PathVariable UUID roomId, @RequestParam(defaultValue = "0") int offset) {
         log.trace("Getting room tracklist: roomId={}", roomId);
-        RoomTracklist tracklist = roomTracklistService.get(roomId);
+        RoomTracklist tracklist = roomTracklistService.get(roomId, offset);
         log.debug("Got room tracklist: tracklist={}", tracklist);
         return tracklist;
     }

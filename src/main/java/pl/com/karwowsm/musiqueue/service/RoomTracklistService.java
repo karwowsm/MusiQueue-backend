@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface RoomTracklistService {
 
-    RoomTracklist get(UUID roomId);
+    RoomTracklist get(UUID roomId, int offset);
 
     RoomTrack addTrack(UUID roomId, Track track, UserAccount userAccount);
 

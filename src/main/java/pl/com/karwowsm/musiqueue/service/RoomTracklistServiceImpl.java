@@ -41,9 +41,10 @@ public class RoomTracklistServiceImpl implements RoomTracklistService {
     private final RoomTrackRepository roomTrackRepository;
 
     @Override
-    public RoomTracklist get(UUID roomId) {
+    public RoomTracklist get(UUID roomId, int offset) {
         Room room = roomRepository.get(roomId);
-        return RoomTracklist.of(roomTrackRepository.findAllByRoomIdOrderByIndex(room.getId()), room);
+        Integer index = (room.getCurrentTrack() != null ? room.getCurrentTrack().getIndex() : 0) + offset - 1;
+        return RoomTracklist.of(roomTrackRepository.findAllByRoomIdAndIndexGreaterThanOrderByIndex(room.getId(), index), room);
     }
 
     @Override
